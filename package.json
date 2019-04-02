@@ -1,0 +1,19 @@
+{
+  "name": "datingapp",
+  "version": "1.0.0",
+  "description": "Dating app",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm init"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixHdezz/DatingApp_desa01.git"
+  },
+  "author": "Felix Hernandez Hernandez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felixHdezz/DatingApp_desa01/issues"
+  },
+  "homepage": "https://github.com/felixHdezz/DatingApp_desa01#readme"
+}
