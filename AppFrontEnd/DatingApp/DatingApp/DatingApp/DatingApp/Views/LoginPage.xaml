@@ -1,12 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DatingApp.Views.LoginPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             xmlns:xfx="clr-namespace:Xfx;assembly=Xfx.Controls"
+             x:Class="DatingApp.Views.LoginPage"
+             BackgroundColor="#7d7d7d">
+    <Page.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+        </ResourceDictionary>
+    </Page.Resources>
+    <ScrollView Padding="8">
+        <Grid Padding="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Label Text="Login"
+               FontSize="30"
+               Margin="0,20"
+               HorizontalTextAlignment="Center"
+               Grid.ColumnSpan="2"/>
+
+            <xfx:XfxEntry 
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                x:Name="Email"
+                Placeholder="Correo electronico:"
+                Text="{Binding Email}"
+                ErrorText="{Binding NameErrorText}"
+                PlaceholderColor="#ebebeb"
+                ActivePlaceholderColor="White"
+                TextColor="White"/>
+
+            <xfx:XfxEntry 
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                x:Name="Password"
+                Placeholder="Contraseña:"
+                Text="{Binding Password}"
+                ErrorText="{Binding NameErrorText}"
+                PlaceholderColor="#ebebeb"
+                ActivePlaceholderColor="White"
+                TextColor="White"
+                IsPassword="True"/>
+            
+            <Button Grid.Row="3"
+                Grid.ColumnSpan="2" 
+                BackgroundColor="#11B5BD"
+			    Text="Ingresar" 
+                TextColor="White"
+                BorderRadius="25"
+                Command="{Binding SubmitLoginCommand}"/>
+        </Grid>
+    </ScrollView>
 </ContentPage>
