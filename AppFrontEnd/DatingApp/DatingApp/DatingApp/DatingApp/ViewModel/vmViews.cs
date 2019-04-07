@@ -4,8 +4,11 @@ using System.Text;
 
 namespace DatingApp.ViewModel
 {
-    class vmViews
+    public class vmViews
     {
+        public string strUsuario { get; set; }
+        public string strPassword { get; set; }
+        public string strGmail { get; set; }
 
-    }
+    }  
 }
