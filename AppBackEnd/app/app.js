@@ -6,10 +6,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 // cargar rutas
-var _user_routes = require('../routes/user');
-var _artist_routes = require('../routes/artist');
-var _album_routes = require('../routes/album');
-var _song_routes= require('../routes/song');
+var auth_routes = require('../routes/authentication');
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
@@ -26,9 +23,6 @@ app.use((req, res, next)=>{
 });
 
 // Rutas base
-app.use('/api', _user_routes);
-app.use('/api', _artist_routes);
-app.use('/api', _album_routes);
-app.use('/api', _song_routes);
+app.use('/api', auth_routes);
 
 module.exports = app;
