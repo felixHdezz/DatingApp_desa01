@@ -1,12 +1,15 @@
 'use strict'
 
 var express = require('express');
-var authenticationController = require('../controllers/AuthenticationController');
+
+var authenticationController = require('../controllers/AuthenticateController');
+
 var multipart = require('connect-multiparty');
 
 // Manejo de rutas en NodeJS
 var api = express.Router();
 
-api.get('/authentication', authenticationController.authentication);
+// Define las rutas para el controlador de autentificacion
+api.post('/auth/v1', authenticationController.authentication);
 
 module.exports = api;
