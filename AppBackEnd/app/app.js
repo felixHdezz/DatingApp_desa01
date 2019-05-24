@@ -43,5 +43,7 @@ module.exports = function (app, passport, io, fs) {
     app.use('/api', _country_route);
     app.use('/api', _state_route);
     app.use('/api', _city_route);
+
+    /* Termina carga de las rutas */
 };
 // Configuracion
