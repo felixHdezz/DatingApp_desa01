@@ -29,6 +29,10 @@ function refreshToken(_user){
     
 }
 
+function verifyToken(_token){
+    
+}
+
 module.exports = {
     createToken: createToken,
     refreshToken:refreshToken
