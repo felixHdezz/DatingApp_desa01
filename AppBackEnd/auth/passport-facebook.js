@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var User = mongoose.model('User');
+var User = require('../models/user');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
 module.exports = function(_passport){
