@@ -10,6 +10,6 @@ var multipart = require('connect-multiparty');
 var api = express.Router();
 
 // Define las rutas para el controlador de autentificacion
-api.post('/auth/v1', authenticationController.authentication);
+api.post('/auth/v1/token', authenticationController.authentication);
 
 module.exports = api;
