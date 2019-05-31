@@ -21,7 +21,6 @@ const verifyTipeLogin = login => {
                 return content;
             }).catch(_error => {
                 _debuger.debugPrint(_error, null);
-                throw new Error(e);
             });
         break;
 
