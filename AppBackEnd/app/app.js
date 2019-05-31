@@ -4,7 +4,7 @@ module.exports = function (app, passport, io, fs) {
     var bodyParser = require('body-parser');
 
     // cargar archivos requeridos para las rutas de cada modulo
-    var _auth_routes = require('../routes/authentication');
+    var _auth_routes = require('../routes/authentication')(passport);
     var _sex_route = require('../routes/sex');
     var _user_route = require('../routes/user');
     var _authSimple_route = require('../routes/authSimple');
@@ -34,7 +34,7 @@ module.exports = function (app, passport, io, fs) {
 
     // Carga la ruta base del API
     _debuger.debugPrint(null, '[initandlisten] Loading routers...');
-    
+
     app.use('/api', _auth_routes);
     app.use('/api', _sex_route);
     app.use('/api', _user_route);
