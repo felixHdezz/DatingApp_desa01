@@ -41,8 +41,17 @@ app.use(bodyParser.urlencoded({
 }));
 
 // set up ejs for templating
-app.set('view engine', 'ejs');
 
+app.set('view engine', 'ejs');
+app.use(session({
+    secret: 'ilovescotchscotchyscotchscotch', // session secret
+    resave: true,
+    saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 // routes ======================================================================
 // load our routes and pass in our app and fully configured passport
 // routes ======================================================================
@@ -51,6 +60,8 @@ app.set('view engine', 'ejs');
 // load our routes and pass in our app and fully configured passport
 // routes ======================================================================
 // load our routes and pass in our app and fully configured passport
+require('./auth/init')(passport);
+
 require('./app/app.js')(app, passport,SERVER_SOCKET, fs);
 
 // launch server ======================================================================
