@@ -9,6 +9,9 @@ var debuger = require('../config/debugerPrint');
 // Carga el archivo para el servico de JWT
 var jwt = require('../services/jwt');
 
+//servicios de auth
+const Authentication = require('../auth/auth');
+
 //Carga modulo para ejecutar executequerys
 var _execQuery = require('../database/query');
 
@@ -16,6 +19,8 @@ var _execQuery = require('../database/query');
 var _user = require('../models/user');
 var _authSimple = require('../models/authSimple');
 var _tokenmodel = require('../models/token');
+
+var _auth = new Authentication();
 
 function authentication(_req, _res) {
 	//Obtiene los parametros enviados desde el front
@@ -54,7 +59,17 @@ function authentication(_req, _res) {
 			}
 		});
 	} else {
-		_res.status(200).send({ message: 'Introduce el email y/o contraseña' });
+		//_res.status(200).send({ message: 'Introduce el email y/o contraseña' });
+		var _type = _params._type;
+		if(_type){
+			const login = _req.body;
+			_auth.authenticate(login).then(credentials => {
+				//userStore.push(credentials.user);
+				//res.json(credentials).end();}
+				console.log(credentials);
+				_res.status(404).send({message: 'exito' });  
+			});
+		}
 	}
 }
 
